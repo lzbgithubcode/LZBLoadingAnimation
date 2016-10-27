@@ -13,6 +13,8 @@
 		18C11BDB1DC18E5E00195494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C11BD91DC18E5E00195494 /* Main.storyboard */; };
 		18C11BDD1DC18E5E00195494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C11BDC1DC18E5E00195494 /* Assets.xcassets */; };
 		18C11BE01DC18E5E00195494 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C11BDE1DC18E5E00195494 /* LaunchScreen.storyboard */; };
+		18C11BEA1DC18F4000195494 /* LZBLoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C11BE91DC18F4000195494 /* LZBLoadingAnimation.m */; };
+		18C11BED1DC18F5400195494 /* LZBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C11BEC1DC18F5400195494 /* LZBLoadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		18C11BDC1DC18E5E00195494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18C11BDF1DC18E5E00195494 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C11BE11DC18E5E00195494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18C11BE81DC18F4000195494 /* LZBLoadingAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLoadingAnimation.h; sourceTree = "<group>"; };
+		18C11BE91DC18F4000195494 /* LZBLoadingAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBLoadingAnimation.m; sourceTree = "<group>"; };
+		18C11BEB1DC18F5400195494 /* LZBLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLoadingView.h; sourceTree = "<group>"; };
+		18C11BEC1DC18F5400195494 /* LZBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBLoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		18C11BCF1DC18E5E00195494 /* LZBLoadingAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				18C11BE71DC18EB000195494 /* Tool */,
 				18C11BD31DC18E5E00195494 /* AppDelegate.h */,
 				18C11BD41DC18E5E00195494 /* AppDelegate.m */,
 				18C11BD61DC18E5E00195494 /* ViewController.h */,
@@ -77,6 +84,17 @@
 				18C11BD11DC18E5E00195494 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18C11BE71DC18EB000195494 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				18C11BE81DC18F4000195494 /* LZBLoadingAnimation.h */,
+				18C11BE91DC18F4000195494 /* LZBLoadingAnimation.m */,
+				18C11BEB1DC18F5400195494 /* LZBLoadingView.h */,
+				18C11BEC1DC18F5400195494 /* LZBLoadingView.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +170,9 @@
 			files = (
 				18C11BD81DC18E5E00195494 /* ViewController.m in Sources */,
 				18C11BD51DC18E5E00195494 /* AppDelegate.m in Sources */,
+				18C11BEA1DC18F4000195494 /* LZBLoadingAnimation.m in Sources */,
 				18C11BD21DC18E5E00195494 /* main.m in Sources */,
+				18C11BED1DC18F5400195494 /* LZBLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
