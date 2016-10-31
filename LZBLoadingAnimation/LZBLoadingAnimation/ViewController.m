@@ -25,14 +25,14 @@
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     self.methodKeys = @[@"fourRoundAnimation",
-                     @"fourRoundAnimation",
+                     @"defautRoundAnimation",
                      @"fourRoundAnimation",
                      @"fourRoundAnimation",
                      @"fourRoundAnimation",
                      @"fourRoundAnimation",];
     //显示文字
     self.methodValues = @[@"BOSS直聘加载动画",
-                        @"fourRoundAnimation",
+                        @"默认常用圆形加载",
                         @"fourRoundAnimation",
                         @"fourRoundAnimation",
                         @"fourRoundAnimation",
@@ -77,7 +77,16 @@
 {
     [LZBLoadingView showLoadingViewFourRoundInView:nil];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [LZBLoadingView dismissLoadingFourRoundView];
+        [LZBLoadingView dismissLoadingView];
+    });
+}
+
+//默认加载动画
+- (void)defautRoundAnimation
+{
+    [LZBLoadingView showLoadingViewDefautRoundInView:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [LZBLoadingView dismissLoadingView];
     });
 }
 

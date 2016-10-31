@@ -15,4 +15,9 @@
  *  加载正方形
  */
 + (CALayer *)loadingReplicatorLayer_SquareWithWidth:(CGFloat)width;
+
+/**
+ *  加载圆形动画
+ */
++ (CALayer *)loadingReplicatorLayer_RoundWithRadius:(CGFloat)radius;
 @end

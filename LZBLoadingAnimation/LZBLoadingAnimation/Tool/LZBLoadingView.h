@@ -10,9 +10,30 @@
 
 @interface LZBLoadingView : UIView
 
+/**
+ *  加载Boss直聘动画
+ */
 + (void)showLoadingViewFourRoundInView:(UIView *)superView;
 
+/**
+ *  加载Boss直聘动画
+ */
 + (void)showLoadingFourRoundView;
 
-+ (void)dismissLoadingFourRoundView;
+
+/**
+ *  加载常用圆形动画
+ */
++ (void)showLoadingViewDefautRoundInView:(UIView *)superView;
+
+/**
+ *  加载常用圆形动画
+ */
++ (void)showLoadingDefautRoundView;
+
+/**
+ *  移除动画
+ */
++ (void)dismissLoadingView;
+
 @end

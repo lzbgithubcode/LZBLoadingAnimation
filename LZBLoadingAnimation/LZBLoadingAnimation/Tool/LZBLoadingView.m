@@ -52,7 +52,6 @@ static  LZBLoadingView *_instance;
     [_instance.containerView.layer addSublayer:fourRound];
     fourRound.bounds = CGRectMake(0, 0, replicatorLayerWidth, replicatorLayerWidth);
     fourRound.position = CGPointMake(LZBLoadingView_Width * 0.5, LZBLoadingView_Height * 0.5);
-    [self addContaninerViewShowAnimation];
 
 }
 
@@ -61,13 +60,31 @@ static  LZBLoadingView *_instance;
     [self showLoadingViewFourRoundInView:nil];
 }
 
-+ (void)dismissLoadingFourRoundView
++ (void)dismissLoadingView
 {
     _instance.containerView.hidden = YES;
     [_instance.containerView.layer removeAllAnimations];
     [_instance.containerView.layer removeFromSuperlayer];
     [_instance.containerView removeFromSuperview];
     [_instance removeFromSuperview];
+}
+
+//加载常用圆形动画
++ (void)showLoadingViewDefautRoundInView:(UIView *)superView
+{
+    [self instanceViewWithSuperView:superView];
+
+    CGFloat replicatorLayerWidth = 80;
+    CALayer *fourRound = [LZBLoadingAnimation loadingReplicatorLayer_RoundWithRadius:replicatorLayerWidth];
+    [_instance.containerView.layer addSublayer:fourRound];
+    fourRound.bounds = CGRectMake(0, 0, replicatorLayerWidth, replicatorLayerWidth);
+    fourRound.position = CGPointMake(LZBLoadingView_Width * 0.5, LZBLoadingView_Height * 0.5);
+  
+}
+
++ (void)showLoadingDefautRoundView
+{
+    [self showLoadingViewDefautRoundInView:nil];
 }
 
 #pragma mark -内部
@@ -85,14 +102,7 @@ static  LZBLoadingView *_instance;
     return _instance;
 }
 
-+ (void)addContaninerViewShowAnimation
-{
-    [UIView animateWithDuration:0.25 animations:^{
-        _instance.alpha = 1.0;
-    } completion:^(BOOL finished) {
-    }];
-    
-}
+
 
 
 
