@@ -8,8 +8,8 @@
 
 #import "LZBLoadingView.h"
 #import "LZBLoadingAnimation.h"
-#define LZBLoadingView_Width 200
-#define LZBLoadingView_Height 200
+#define LZBLoadingView_Width 150
+#define LZBLoadingView_Height 150
 
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
@@ -27,8 +27,8 @@ static  LZBLoadingView *_instance;
 {
    if(self = [super initWithFrame:frame])
    {
-       [self setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.3]];
        [self addSubview:self.containerView];
+       
    }
     return self;
 }
@@ -37,7 +37,7 @@ static  LZBLoadingView *_instance;
 {
     [super layoutSubviews];
     self.containerView.bounds = CGRectMake(0, 0, LZBLoadingView_Width, LZBLoadingView_Height);
-    self.containerView.center = CGPointMake(self.center.x,-LZBLoadingView_Height*0.5);
+    self.containerView.center = CGPointMake(SCREEN_WIDTH*0.5,SCREEN_HEIGHT*0.5);
 }
 
 
@@ -63,7 +63,11 @@ static  LZBLoadingView *_instance;
 
 + (void)dismissLoadingFourRoundView
 {
-    
+    _instance.containerView.hidden = YES;
+    [_instance.containerView.layer removeAllAnimations];
+    [_instance.containerView.layer removeFromSuperlayer];
+    [_instance.containerView removeFromSuperview];
+    [_instance removeFromSuperview];
 }
 
 #pragma mark -内部
@@ -74,11 +78,10 @@ static  LZBLoadingView *_instance;
     
     if([superView.subviews containsObject:_instance])
         [_instance removeFromSuperview];
-    _instance = [[LZBLoadingView alloc]init];
     
+    _instance = [[LZBLoadingView alloc]init];
     [superView addSubview:_instance];
     _instance.frame = [UIScreen mainScreen].bounds;
-    _instance.alpha = 0.0;
     return _instance;
 }
 
@@ -87,9 +90,6 @@ static  LZBLoadingView *_instance;
     [UIView animateWithDuration:0.25 animations:^{
         _instance.alpha = 1.0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _instance.containerView.center = CGPointMake(SCREEN_WIDTH*0.5,SCREEN_HEIGHT*0.5);
-        }];
     }];
     
 }
@@ -102,9 +102,9 @@ static  LZBLoadingView *_instance;
     if(_containerView == nil)
     {
         _containerView = [UIView new];
-        _containerView.backgroundColor = [UIColor whiteColor];
+        _containerView.backgroundColor = [UIColor lightGrayColor];
         _containerView.userInteractionEnabled = YES;
-        _containerView.layer.cornerRadius = 5.0;
+        _containerView.layer.cornerRadius = 10.0;
         _containerView.layer.masksToBounds= YES;
     }
     return _containerView;
