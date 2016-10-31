@@ -75,7 +75,7 @@ static  LZBLoadingView *_instance;
     [self instanceViewWithSuperView:superView];
 
     CGFloat replicatorLayerWidth = 80;
-    CALayer *fourRound = [LZBLoadingAnimation loadingReplicatorLayer_RoundWithRadius:replicatorLayerWidth];
+    CALayer *fourRound = [LZBLoadingAnimation loadingReplicatorLayer_Round];
     [_instance.containerView.layer addSublayer:fourRound];
     fourRound.bounds = CGRectMake(0, 0, replicatorLayerWidth, replicatorLayerWidth);
     fourRound.position = CGPointMake(LZBLoadingView_Width * 0.5, LZBLoadingView_Height * 0.5);

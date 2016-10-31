@@ -19,5 +19,5 @@
 /**
  *  加载圆形动画
  */
-+ (CALayer *)loadingReplicatorLayer_RoundWithRadius:(CGFloat)radius;
++ (CALayer *)loadingReplicatorLayer_Round;
 @end

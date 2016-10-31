@@ -25,18 +25,32 @@
 }
 
 
-+ (CALayer *)loadingReplicatorLayer_RoundWithRadius:(CGFloat)radius
++ (CALayer *)loadingReplicatorLayer_Round
 {
     //创建单个圆
-    CGFloat sigleSquareDiameter = 10;
+    CGFloat sigleSquareDiameter = 15;
     CAShapeLayer *shape = [self creatShapeLayerWithRadius:sigleSquareDiameter];
+    [shape addAnimation:[self addReplicatorLayerScaleAnition] forKey:@"scale"];
+    shape.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
     
     //复制多个同样的圆
     NSInteger instanceCount = 10;
     CATransform3D transform3D = CATransform3DIdentity;
     transform3D = CATransform3DRotate(transform3D, 2*M_PI/instanceCount, 0, 0, 1.0);
      CAReplicatorLayer *replicatorLayer = [self creatReplicatorLayerWithCount:instanceCount tranform:transform3D copyLayer:shape];
+    replicatorLayer.instanceDelay = 1.0/instanceCount;
+    
     return replicatorLayer;
+}
+
++ (CABasicAnimation *)addReplicatorLayerScaleAnition
+{
+    CABasicAnimation *basic = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    basic.repeatCount = MAXFLOAT;
+    basic.fromValue = @1;
+    basic.toValue = @0;
+    basic.duration = 1.0;
+    return basic;
 }
 
 + (CABasicAnimation *)addReplicatorLayerRotationAnimaitonWithTranslateX:(CGFloat)translateX
