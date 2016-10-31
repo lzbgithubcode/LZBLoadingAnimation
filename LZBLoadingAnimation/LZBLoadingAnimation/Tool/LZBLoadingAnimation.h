@@ -26,4 +26,5 @@
  *  加载圆形线动画
  */
 + (CALayer *)loadingReplicatorLayer_RoundLineRadius:(CGFloat)radius;
+
 @end

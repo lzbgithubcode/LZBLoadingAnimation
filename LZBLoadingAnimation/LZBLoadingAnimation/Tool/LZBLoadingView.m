@@ -98,6 +98,8 @@ static  LZBLoadingView *_instance;
 
 
 
+
+
 + (void)dismissLoadingView
 {
     [UIView animateWithDuration:0.25 animations:^{

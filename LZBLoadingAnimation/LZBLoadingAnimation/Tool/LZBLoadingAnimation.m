@@ -11,6 +11,8 @@
 
 static CGFloat _progress = 0;
 
+static CADisplayLink *_displayTimer;
+
 @implementation LZBLoadingAnimation
 + (CALayer *)loadingReplicatorLayer_SquareWithWidth:(CGFloat)width
 {
@@ -59,20 +61,19 @@ static CGFloat _progress = 0;
     shapeCircle.strokeEnd = 0;
     _progress = 0.0;
     
-
+    //iOS10.0方法
     [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
         _progress +=0.033;
         if (_progress>=1.f) {
             _progress = 1.0;
+            [timer invalidate];
+            timer = nil;
         }
         shapeCircle.strokeEnd = _progress;
     }];
     
-    
     return shapeCircle;
 }
-
-
 
 + (CABasicAnimation *)addReplicatorLayerScaleAnition
 {

@@ -26,17 +26,12 @@
     [self.view addSubview:self.tableView];
     self.methodKeys = @[@"fourRoundAnimation",
                      @"defautRoundAnimation",
-                     @"roundLineAnimation",
-                     @"fourRoundAnimation",
-                     @"fourRoundAnimation",
-                     @"fourRoundAnimation",];
+                     @"roundLineAnimation",];
     //显示文字
     self.methodValues = @[@"BOSS直聘加载动画",
-                        @"默认常用圆形加载",
+                        @"默认常用圆形加载动画",
                         @"圆形线的加载动画",
-                        @"fourRoundAnimation",
-                        @"fourRoundAnimation",
-                        @"fourRoundAnimation",];
+                       ];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -90,6 +85,7 @@
     });
 }
 
+//圆形加载动画
 - (void)roundLineAnimation
 {
     [LZBLoadingView showLoadingDefautRoundLineView];
@@ -97,6 +93,8 @@
         [LZBLoadingView dismissLoadingView];
     });
 }
+
+
 
 
 
