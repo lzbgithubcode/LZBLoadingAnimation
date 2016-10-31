@@ -9,6 +9,8 @@
 #import "LZBLoadingAnimation.h"
 #import <UIKit/UIKit.h>
 
+static CGFloat _progress = 0;
+
 @implementation LZBLoadingAnimation
 + (CALayer *)loadingReplicatorLayer_SquareWithWidth:(CGFloat)width
 {
@@ -45,13 +47,32 @@
 
 + (CALayer *)loadingReplicatorLayer_RoundLineRadius:(CGFloat)radius
 {
-    //创建单个圆
+    //创建圆弧
     CAShapeLayer *shapeCircle = [CAShapeLayer layer];
     shapeCircle.frame = CGRectMake(0, 0, radius, radius);
-    shapeCircle.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, radius, radius)].CGPath;
+    UIBezierPath *bezierPath =[UIBezierPath bezierPathWithArcCenter:CGPointMake(radius * 0.5, radius * 0.5) radius:radius*0.5 startAngle:0 endAngle:2*M_PI clockwise:YES];
+    shapeCircle.path = bezierPath.CGPath;
     shapeCircle.strokeColor = [UIColor blackColor].CGColor;
+    shapeCircle.lineWidth = 5;
+    shapeCircle.fillColor = [UIColor clearColor].CGColor;
+    shapeCircle.strokeStart=0;
+    shapeCircle.strokeEnd = 0;
+    _progress = 0.0;
+    
+
+    [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        _progress +=0.033;
+        if (_progress>=1.f) {
+            _progress = 1.0;
+        }
+        shapeCircle.strokeEnd = _progress;
+    }];
+    
+    
     return shapeCircle;
 }
+
+
 
 + (CABasicAnimation *)addReplicatorLayerScaleAnition
 {
@@ -62,6 +83,8 @@
     basic.duration = 1.0;
     return basic;
 }
+
+
 
 + (CABasicAnimation *)addReplicatorLayerRotationAnimaitonWithTranslateX:(CGFloat)translateX
 {

@@ -83,6 +83,11 @@ static  LZBLoadingView *_instance;
 + (void)showLoadingViewDefautRoundLineInView:(UIView *)superView
 {
    [self instanceViewWithSuperView:superView];
+    CGFloat replicatorLayerWidth = 80;
+    CALayer *fourRound = [LZBLoadingAnimation loadingReplicatorLayer_RoundLineRadius:replicatorLayerWidth];
+    [_instance.containerView.layer addSublayer:fourRound];
+    fourRound.bounds = CGRectMake(0, 0, replicatorLayerWidth, replicatorLayerWidth);
+    fourRound.position = CGPointMake(LZBLoadingView_Width * 0.5, LZBLoadingView_Height * 0.5);
 }
 
 + (void)showLoadingDefautRoundLineView
@@ -99,7 +104,6 @@ static  LZBLoadingView *_instance;
         _instance.containerView.alpha = 0.0;
     } completion:^(BOOL finished) {
         [_instance.containerView.layer removeAllAnimations];
-        [_instance.containerView.layer removeFromSuperlayer];
         [_instance.containerView removeFromSuperview];
         [_instance removeFromSuperview];
     }];
