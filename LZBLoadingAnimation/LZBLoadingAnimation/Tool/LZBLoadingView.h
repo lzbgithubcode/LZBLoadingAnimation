@@ -22,14 +22,17 @@
 
 
 /**
- *  加载常用圆形动画
+ *  加载常用圆形点动画
  */
-+ (void)showLoadingViewDefautRoundInView:(UIView *)superView;
++ (void)showLoadingViewDefautRoundDotInView:(UIView *)superView;
 
 /**
- *  加载常用圆形动画
+ *  加载常用圆形点动画
  */
-+ (void)showLoadingDefautRoundView;
++ (void)showLoadingDefautRoundDotView;
+
+
+
 
 /**
  *  移除动画

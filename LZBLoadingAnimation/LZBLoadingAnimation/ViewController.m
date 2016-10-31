@@ -84,7 +84,7 @@
 //默认加载动画
 - (void)defautRoundAnimation
 {
-    [LZBLoadingView showLoadingViewDefautRoundInView:nil];
+    [LZBLoadingView showLoadingViewDefautRoundDotInView:nil];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [LZBLoadingView dismissLoadingView];
     });

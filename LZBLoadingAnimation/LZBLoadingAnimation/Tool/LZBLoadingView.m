@@ -60,17 +60,10 @@ static  LZBLoadingView *_instance;
     [self showLoadingViewFourRoundInView:nil];
 }
 
-+ (void)dismissLoadingView
-{
-    _instance.containerView.hidden = YES;
-    [_instance.containerView.layer removeAllAnimations];
-    [_instance.containerView.layer removeFromSuperlayer];
-    [_instance.containerView removeFromSuperview];
-    [_instance removeFromSuperview];
-}
+
 
 //加载常用圆形动画
-+ (void)showLoadingViewDefautRoundInView:(UIView *)superView
++ (void)showLoadingViewDefautRoundDotInView:(UIView *)superView
 {
     [self instanceViewWithSuperView:superView];
 
@@ -82,9 +75,20 @@ static  LZBLoadingView *_instance;
   
 }
 
-+ (void)showLoadingDefautRoundView
++ (void)showLoadingDefautRoundDotView
 {
-    [self showLoadingViewDefautRoundInView:nil];
+    [self showLoadingViewDefautRoundDotInView:nil];
+}
+
+
+
++ (void)dismissLoadingView
+{
+    _instance.containerView.hidden = YES;
+    [_instance.containerView.layer removeAllAnimations];
+    [_instance.containerView.layer removeFromSuperlayer];
+    [_instance.containerView removeFromSuperview];
+    [_instance removeFromSuperview];
 }
 
 #pragma mark -内部
