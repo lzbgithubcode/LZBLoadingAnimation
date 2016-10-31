@@ -60,19 +60,16 @@ static  LZBLoadingView *_instance;
     [self showLoadingViewFourRoundInView:nil];
 }
 
-
-
 //加载常用圆形动画
 + (void)showLoadingViewDefautRoundDotInView:(UIView *)superView
 {
     [self instanceViewWithSuperView:superView];
 
     CGFloat replicatorLayerWidth = 80;
-    CALayer *fourRound = [LZBLoadingAnimation loadingReplicatorLayer_Round];
+    CALayer *fourRound = [LZBLoadingAnimation loadingReplicatorLayer_RoundDot];
     [_instance.containerView.layer addSublayer:fourRound];
     fourRound.bounds = CGRectMake(0, 0, replicatorLayerWidth, replicatorLayerWidth);
     fourRound.position = CGPointMake(LZBLoadingView_Width * 0.5, LZBLoadingView_Height * 0.5);
-  
 }
 
 + (void)showLoadingDefautRoundDotView
@@ -82,13 +79,31 @@ static  LZBLoadingView *_instance;
 
 
 
+// 加载常用圆形线动画
++ (void)showLoadingViewDefautRoundLineInView:(UIView *)superView
+{
+   [self instanceViewWithSuperView:superView];
+}
+
++ (void)showLoadingDefautRoundLineView
+{
+    [self showLoadingViewDefautRoundLineInView:nil];
+}
+
+
+
+
 + (void)dismissLoadingView
 {
-    _instance.containerView.hidden = YES;
-    [_instance.containerView.layer removeAllAnimations];
-    [_instance.containerView.layer removeFromSuperlayer];
-    [_instance.containerView removeFromSuperview];
-    [_instance removeFromSuperview];
+    [UIView animateWithDuration:0.25 animations:^{
+        _instance.containerView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [_instance.containerView.layer removeAllAnimations];
+        [_instance.containerView.layer removeFromSuperlayer];
+        [_instance.containerView removeFromSuperview];
+        [_instance removeFromSuperview];
+    }];
+ 
 }
 
 #pragma mark -内部

@@ -25,7 +25,7 @@
 }
 
 
-+ (CALayer *)loadingReplicatorLayer_Round
++ (CALayer *)loadingReplicatorLayer_RoundDot
 {
     //创建单个圆
     CGFloat sigleSquareDiameter = 15;
@@ -41,6 +41,16 @@
     replicatorLayer.instanceDelay = 1.0/instanceCount;
     
     return replicatorLayer;
+}
+
++ (CALayer *)loadingReplicatorLayer_RoundLineRadius:(CGFloat)radius
+{
+    //创建单个圆
+    CAShapeLayer *shapeCircle = [CAShapeLayer layer];
+    shapeCircle.frame = CGRectMake(0, 0, radius, radius);
+    shapeCircle.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, radius, radius)].CGPath;
+    shapeCircle.strokeColor = [UIColor blackColor].CGColor;
+    return shapeCircle;
 }
 
 + (CABasicAnimation *)addReplicatorLayerScaleAnition

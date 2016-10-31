@@ -32,6 +32,17 @@
 + (void)showLoadingDefautRoundDotView;
 
 
+/**
+ *  加载常用圆形线动画
+ */
++ (void)showLoadingViewDefautRoundLineInView:(UIView *)superView;
+
+/**
+ *  加载常用圆形线动画
+ */
++ (void)showLoadingDefautRoundLineView;
+
+
 
 
 /**

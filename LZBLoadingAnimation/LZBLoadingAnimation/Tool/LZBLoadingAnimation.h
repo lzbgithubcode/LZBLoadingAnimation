@@ -17,7 +17,13 @@
 + (CALayer *)loadingReplicatorLayer_SquareWithWidth:(CGFloat)width;
 
 /**
- *  加载圆形动画
+ *  加载圆形点动画
  */
-+ (CALayer *)loadingReplicatorLayer_Round;
++ (CALayer *)loadingReplicatorLayer_RoundDot;
+
+
+/**
+ *  加载圆形线动画
+ */
++ (CALayer *)loadingReplicatorLayer_RoundLineRadius:(CGFloat)radius;
 @end
